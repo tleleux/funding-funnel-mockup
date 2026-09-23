@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funding Readiness Assessment | Northstar Capital Partners</title>
+  <meta name="description" content="Answer nine questions about your entity, credit, financials and documentation. Get an instant funding readiness score and the fixes that matter most.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    /* Assessment-page-specific overrides */
+    #lead-form,
+    #results-panel { display: none; }
+
+    .quiz-q { padding: 32px 36px; }
+    @media (max-width:600px) { .quiz-q { padding: 22px 18px; } }
+
+    .quiz-shell-full {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--surface-1);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brandmark" aria-label="Northstar Capital Partners — Home">
+      Northstar <span>Capital</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <button class="nav-drop__btn" type="button" aria-expanded="false" aria-haspopup="true">
+          Services <span class="nav-drop__caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-drop__menu" role="menu">
+          <a href="business.html" role="menuitem">Business</a>
+          <a href="business.html#personal" role="menuitem">Personal</a>
+          <a href="business.html#real-estate" role="menuitem">Real Estate</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+      <a href="assessment.html" class="btn btn--primary btn--sm nav-cta active">Take the assessment →</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="business.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="assessment.html" class="btn btn--primary">Take the assessment →</a>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+  <!-- Hero -->
+  <section class="assessment-hero" aria-labelledby="assessment-h1">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--light">Funding Readiness Assessment</span>
+      <h1 id="assessment-h1">Score your business in ten minutes.</h1>
+      <p>
+        Answer nine questions covering your entity structure, credit profile, financials and documentation.
+        You will receive an instant readiness score, your band and a prioritized list of what to address first.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quiz section -->
+  <section class="section section--sm" aria-labelledby="quiz-heading">
+    <div class="wrap">
+      <h2 id="quiz-heading" class="sr-only">Readiness assessment quiz</h2>
+
+      <!-- THE QUIZ CONTAINER -->
+      <div id="assessment-quiz">
+        <div class="quiz-shell-full">
+
+          <!-- Progress header -->
+          <div class="quiz__top">
+            <span>Question <span data-current>1</span> / <span data-total>9</span></span>
+            <span>Funding Readiness</span>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="quiz__bar" aria-hidden="true">
+            <div class="quiz__bar-fill" style="width:0%"></div>
+          </div>
+
+          <!-- Question screens — injected by app.js -->
+          <div id="quiz-steps"></div>
+
+          <!-- Lead capture form (shown after last question) -->
+          <div id="lead-form" class="lead-form">
+            <h3>Almost there — get your results</h3>
+            <p>Enter your details below. We will send your results and follow up to walk through your plan.</p>
+
+            <form novalidate>
+              <input type="hidden" name="answers_json" value="">
+
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="lf-fullname">Full name <span class="required-star">*</span></label>
+                    <input type="text" id="lf-fullname" name="full_name" required autocomplete="name" placeholder="Jane Smith">
+                  </div>
+                  <div class="field">
+                    <label for="lf-biz">Business name</label>
+                    <input type="text" id="lf-biz" name="business_name" autocomplete="organization" placeholder="Acme LLC">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="lf-email">Email <span class="required-star">*</span></label>
+                    <input type="email" id="lf-email" name="email" required autocomplete="email" placeholder="jane@acme.com">
+                  </div>
+                  <div class="field">
+                    <label for="lf-phone">Phone</label>
+                    <input type="tel" id="lf-phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000">
+                  </div>
+                </div>
+              </div>
+
+              <div class="tcpa-check">
+                <input type="checkbox" id="tcpa" name="tcpa" required>
+                <label for="tcpa">
+                  I agree to receive calls, texts and emails from <span data-brand></span> regarding my assessment
+                  results and funding readiness services. Message frequency may vary; standard message and data rates
+                  may apply. Reply STOP to opt out or HELP for assistance.
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center">
+                Get my score →
+              </button>
+
+              <p style="font-size:.78rem;color:var(--ink-500);margin-top:12px;text-align:center">
+                Assessment is free. Brokering services are a <span data-fee></span> success fee at close — nothing upfront.
+              </p>
+            </form>
+          </div><!-- /#lead-form -->
+
+          <!-- Results panel (shown after form submit) -->
+          <div id="results-panel" class="results">
+            <div class="results__score-row">
+              <span class="results__pct">—</span>
+              <span class="results__band">—</span>
+            </div>
+            <p class="results__summary"></p>
+
+            <div class="results__recs">
+              <h4>Priority actions</h4>
+              <ul class="results__rec-list"></ul>
+            </div>
+
+            <div class="pillars" style="margin-top:24px">
+              <h4 style="font-family:var(--font-head);font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--emerald);margin-bottom:14px">
+                Score by pillar
+              </h4>
+              <!-- Pillar rows injected by app.js -->
+            </div>
+
+            <div class="results__cta"></div>
+          </div><!-- /#results-panel -->
+
+        </div><!-- /.quiz-shell-full -->
+      </div><!-- /#assessment-quiz -->
+
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section section--alt" aria-labelledby="how-h2">
+    <div class="wrap">
+      <div class="sec-head center">
+        <span class="eyebrow">How It Works</span>
+        <h2 id="how-h2">From questions to a plan in three steps.</h2>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="rail__n" style="margin-bottom:12px">01 &nbsp; Answer</div>
+          <h3>Nine short questions</h3>
+          <p>Four pillars — entity, credit, financials and documentation. No documents needed to begin.</p>
+        </article>
+        <article class="card">
+          <div class="rail__n" style="margin-bottom:12px">02 &nbsp; Score</div>
+          <h3>Instant readiness score</h3>
+          <p>You see your score, your readiness band and the specific gaps pulling it down.</p>
+        </article>
+        <article class="card">
+          <div class="rail__n" style="margin-bottom:12px">03 &nbsp; Plan</div>
+          <h3>Prioritized next steps</h3>
+          <p>We follow up to walk your results and sequence the work in the order that unlocks the most capacity.</p>
+        </article>
+      </div>
+
+      <!-- Facts table -->
+      <div class="facts">
+        <div class="fact">
+          <div class="fact__k">Time required</div>
+          <div class="fact__v">About 10 minutes</div>
+        </div>
+        <div class="fact">
+          <div class="fact__k">Cost</div>
+          <div class="fact__v">Assessment is free. Brokering is a <span data-fee></span> success fee at close.</div>
+        </div>
+        <div class="fact">
+          <div class="fact__k">What you get</div>
+          <div class="fact__v">A score, a band and prioritized next steps</div>
+        </div>
+        <div class="fact">
+          <div class="fact__k">Questions</div>
+          <div class="fact__v">9 total across 4 pillars</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-foot" aria-label="Site footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brandmark">Northstar <span>Capital</span></span>
+        <p><span data-brand></span> helps business owners become funding-ready — clean structure, strong credit profile, lender-grade documents.</p>
+      </div>
+      <div class="foot-col">
+        <div class="foot-label">Explore</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="assessment.html">Assessment</a></li>
+          <li><a href="business.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-label">Contact</div>
+        <address>
+          <span data-brand></span><br>
+          [ADDRESS]<br>
+          <a href="tel:[PHONE]">[PHONE]</a><br>
+          <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 <span data-brand></span>. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+    <p class="foot-disclaimer">
+      <span data-brand></span> provides business funding readiness consulting and loan brokering services.
+      We are not a bank or a direct lender — we present your file to funding partners and charge a
+      <span data-fee></span> success fee at the close of each round of service.
+      We do not guarantee funding approvals or specific amounts, and nothing on this site constitutes legal,
+      tax, or financial advice. Funding decisions are made solely by the lenders and institutions you apply to.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
