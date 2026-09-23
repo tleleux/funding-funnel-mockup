@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Northstar Capital Partners</title>
+  <meta name="description" content="Questions about your funding profile, assessment results, or where to start? Reach out to Northstar Capital Partners directly.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brandmark" aria-label="Northstar Capital Partners — Home">
+      Northstar <span>Capital</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-drop">
+        <button class="nav-drop__btn" type="button" aria-expanded="false" aria-haspopup="true">
+          Services <span class="nav-drop__caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-drop__menu" role="menu">
+          <a href="business.html" role="menuitem">Business</a>
+          <a href="business.html#personal" role="menuitem">Personal</a>
+          <a href="business.html#real-estate" role="menuitem">Real Estate</a>
+        </div>
+      </div>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="assessment.html" class="btn btn--primary btn--sm nav-cta">Take the assessment →</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="business.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="assessment.html" class="btn btn--primary">Take the assessment →</a>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+  <!-- Hero -->
+  <section class="assessment-hero" aria-labelledby="contact-h1">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--light">Contact</span>
+      <h1 id="contact-h1">Let's talk.</h1>
+      <p>
+        Questions about your funding profile, your assessment results, or where to start?
+        Send us a note and we will come back to you directly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section class="section">
+    <div class="wrap contact-grid">
+
+      <!-- Form -->
+      <div class="contact-form">
+        <form id="contact-form" novalidate>
+
+          <div class="form-group">
+            <div class="field">
+              <label for="cf-name">Name <span class="required-star">*</span></label>
+              <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Jane Smith">
+            </div>
+            <div class="field">
+              <label for="cf-email">Email <span class="required-star">*</span></label>
+              <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="jane@acme.com">
+            </div>
+            <div class="field">
+              <label for="cf-message">Message <span class="required-star">*</span></label>
+              <textarea id="cf-message" name="message" required placeholder="Tell us a bit about your business and what you need..." rows="6"></textarea>
+            </div>
+          </div>
+
+          <div class="tcpa-check">
+            <input type="checkbox" id="cf-tcpa" name="tcpa" required>
+            <label for="cf-tcpa">
+              I agree to receive SMS messages from <span data-brand></span> about my inquiry.
+              Message frequency may vary. Standard message and data rates may apply.
+              Reply STOP to opt out or HELP for help.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn--primary" style="width:100%;justify-content:center">
+            Send message →
+          </button>
+        </form>
+
+        <div id="contact-success" class="success-msg" role="alert">
+          <strong>Message received.</strong> We will be in touch shortly to discuss your funding profile.
+        </div>
+      </div>
+
+      <!-- Aside -->
+      <aside class="contact-aside">
+        <h3>Office</h3>
+        <address>
+          <span data-brand></span><br>
+          [ADDRESS]<br><br>
+          By appointment only.<br><br>
+          <a href="tel:[PHONE]" style="color:var(--emerald);font-weight:600">[PHONE]</a><br>
+          <a href="mailto:[EMAIL]" style="color:var(--emerald);font-weight:600">[EMAIL]</a>
+        </address>
+
+        <hr style="border:none;border-top:1px solid var(--border);margin-block:24px">
+
+        <h3>Prefer to start with the assessment?</h3>
+        <p style="margin-top:10px">
+          The Funding Readiness Assessment is free and gives you an instant score
+          plus prioritized next steps — no conversation required to start.
+        </p>
+        <a href="assessment.html" class="btn btn--outline" style="margin-top:18px;display:inline-flex">
+          Take the assessment →
+        </a>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-foot" aria-label="Site footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brandmark">Northstar <span>Capital</span></span>
+        <p><span data-brand></span> helps business owners become funding-ready — clean structure, strong credit profile, lender-grade documents.</p>
+      </div>
+      <div class="foot-col">
+        <div class="foot-label">Explore</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="assessment.html">Assessment</a></li>
+          <li><a href="business.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-label">Contact</div>
+        <address>
+          <span data-brand></span><br>
+          [ADDRESS]<br>
+          <a href="tel:[PHONE]">[PHONE]</a><br>
+          <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 <span data-brand></span>. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+    <p class="foot-disclaimer">
+      <span data-brand></span> provides business funding readiness consulting and loan brokering services.
+      We are not a bank or a direct lender — we present your file to funding partners and charge a
+      <span data-fee></span> success fee at the close of each round of service.
+      We do not guarantee funding approvals or specific amounts, and nothing on this site constitutes legal,
+      tax, or financial advice. Funding decisions are made solely by the lenders and institutions you apply to.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
