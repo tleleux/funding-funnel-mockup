@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funding Funnel — Partnership Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f1417;--card:#171e22;--line:#26313a;--text:#e8edf0;--muted:#9aa8b3;--em:#22c47a;--em2:#1a9d61;--amber:#f5b342;--blue:#4aa3ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Sora,Inter,sans-serif}
+.tag{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--em);font-weight:600;margin-bottom:8px}
+h1{font-size:28px;line-height:1.15;margin-bottom:10px}
+.sub{color:var(--muted);font-size:15px;margin-bottom:24px}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted)}
+.pill b{color:var(--text)}
+.flow{position:relative;padding-left:34px}
+.flow:before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.step{position:relative;margin-bottom:18px}
+.step .num{position:absolute;left:-34px;top:2px;width:28px;height:28px;border-radius:50%;background:var(--card);border:2px solid var(--em);color:var(--em);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:Sora}
+.step.j .num{border-color:var(--amber);color:var(--amber)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{font-size:17px;margin-bottom:4px}
+.owner{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.owner.r{color:var(--em)} .owner.j{color:var(--amber)} .owner.s{color:var(--blue)}
+.card p{color:var(--muted);font-size:14px}
+.card ul{margin:8px 0 0 16px;color:var(--muted);font-size:14px}
+.card li{margin-bottom:3px}
+.btn{display:inline-block;margin-top:12px;background:var(--em);color:#06120b;font-weight:600;padding:10px 16px;border-radius:10px;text-decoration:none;font-size:14px}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text);margin-left:6px}
+.shot{width:100%;border-radius:10px;border:1px solid var(--line);margin-top:12px;display:block}
+.bands{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.band{border-radius:10px;padding:10px;font-size:13px;border:1px solid var(--line)}
+.band b{display:block;font-size:14px;margin-bottom:2px}
+.band.g{border-color:var(--em)} .band.y{border-color:var(--amber)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+.side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.side h3{font-size:15px;margin-bottom:8px}
+.side.r h3{color:var(--em)} .side.j h3{color:var(--amber)}
+.side li{font-size:13px;color:var(--muted);margin-left:14px;margin-bottom:4px}
+.money{margin-top:24px}
+.money .card{border-color:var(--em2)}
+.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row:last-child{border-bottom:0}
+.row span:last-child{font-weight:600}
+.note{font-size:12px;color:var(--muted);margin-top:10px}
+.q{margin-top:24px}
+.q li{color:var(--text);font-size:14px;margin-left:16px;margin-bottom:6px}
+footer{margin-top:36px;font-size:12px;color:var(--muted);text-align:center}
+@media(max-width:420px){.split{grid-template-columns:1fr}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="tag">Partnership mockup</span>
+  <h1>Business Funding Funnel<br>Reactiiv × Julian</h1>
+  <p class="sub">We generate and pre-qualify the demand, close the upfront, and hand off. You fulfill the credit + funding and keep the funding on the backend.</p>
+
+  <div class="pill-row">
+    <span class="pill"><b style="color:var(--em)">Green</b> = Reactiiv</span>
+    <span class="pill"><b style="color:var(--amber)">Gold</b> = Julian</span>
+    <span class="pill"><b style="color:var(--blue)">Blue</b> = shared</span>
+  </div>
+
+  <div class="flow">
+    <div class="step"><div class="num">1</div><div class="card">
+      <div class="owner r">Reactiiv</div>
+      <h3>Scrape & target leads</h3>
+      <p>Business owners who fit the profile: 6+ months in business, active revenue, looking for capital or credit. Pulled from public business data + paid social lookalikes.</p>
+    </div></div>
+
+    <div class="step"><div class="num">2</div><div class="card">
+      <div class="owner r">Reactiiv</div>
+      <h3>Outreach → landing page</h3>
+      <p>Cold outreach + paid ads drive every lead to one page. Hook: "Find out in 3 minutes if your business is fundable."</p>
+      <a class="btn" href="../index.html">Open landing page</a>
+      <img class="shot" src="assets/northstar-home.png" alt="Landing page">
+    </div></div>
+
+    <div class="step"><div class="num">3</div><div class="card">
+      <div class="owner r">Reactiiv</div>
+      <h3>9-question readiness assessment</h3>
+      <p>Four pillars: entity & structure, credit profile, financials, documentation. Each answer scores 3/2/1/0. These are the actual underwriting inputs, so the quiz does the qualifying.</p>
+      <a class="btn" href="../assessment.html">Take the assessment</a>
+      <img class="shot" src="assets/northstar-assessment.png" alt="Assessment">
+    </div></div>
+
+    <div class="step"><div class="num">4</div><div class="card">
+      <div class="owner r">Reactiiv</div>
+      <h3>Lead form gates the score</h3>
+      <p>Name, email, phone, TCPA consent before the result shows. Every answer + score fires into our CRM instantly. Lead gets SMS + email with their score on the spot.</p>
+      <div class="bands">
+        <div class="band g"><b>Funding Ready ≥80%</b>Straight to a call</div>
+        <div class="band g"><b>Nearly Ready ≥60%</b>Straight to a call</div>
+        <div class="band y"><b>Building ≥35%</b>Credit-build offer</div>
+        <div class="band y"><b>Foundation &lt;35%</b>Credit-build offer</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="num">5</div><div class="card">
+      <div class="owner r">Reactiiv</div>
+      <h3>Qualified leads book a call</h3>
+      <p>Only qualified bands hit the calendar. Nurture sequence per band handles no-shows and the not-ready-yet crowd. Closer sees the full quiz profile before dialing.</p>
+    </div></div>
+
+    <div class="step"><div class="num">6</div><div class="card">
+      <div class="owner r">Reactiiv</div>
+      <h3>Close on an upfront payment</h3>
+      <p>We sell the engagement and collect the upfront. Client is committed and paid before they ever reach fulfillment.</p>
+    </div></div>
+
+    <div class="step j"><div class="num">7</div><div class="card">
+      <div class="owner j">Julian</div>
+      <h3>Handoff to Julian's team</h3>
+      <p>Client record, quiz answers, score, docs status and call notes pushed over. Warm intro, no re-qualification needed.</p>
+    </div></div>
+
+    <div class="step j"><div class="num">8</div><div class="card">
+      <div class="owner j">Julian</div>
+      <h3>Fulfillment: credit build + funding placement</h3>
+      <p>Your team runs the credit build and places the funding. You keep the funding revenue on the backend.</p>
+    </div></div>
+
+    <div class="step"><div class="num" style="border-color:var(--blue);color:var(--blue)">9</div><div class="card">
+      <div class="owner s">Shared</div>
+      <h3>Re-score & recycle</h3>
+      <p>Building / Foundation clients re-take the assessment after 60–90 days of credit build → move to funding. One lead, two revenue events.</p>
+    </div></div>
+  </div>
+
+  <div class="split">
+    <div class="side r"><h3>Reactiiv owns</h3><ul>
+      <li>Lead scraping + list building</li><li>Outreach + paid traffic</li><li>Funnel, domain, quiz</li><li>CRM pipeline + nurture</li><li>Booking + sales call</li><li>Upfront payment collection</li></ul></div>
+    <div class="side j"><h3>Julian owns</h3><ul>
+      <li>Business credit build</li><li>Funding placement</li><li>Lender relationships</li><li>Client relationship post-close</li><li>Backend funding revenue</li><li>State coverage / licensing</li></ul></div>
+  </div>
+
+  <div class="money">
+    <div class="card">
+      <div class="owner r">Sample economics — placeholder numbers</div>
+      <div class="row"><span>Cost per quiz lead</span><span>$30</span></div>
+      <div class="row"><span>Lead → booked call</span><span>20%</span></div>
+      <div class="row"><span>Call → closed</span><span>25%</span></div>
+      <div class="row"><span>Leads needed per funded deal</span><span>~20</span></div>
+      <div class="row"><span>Acquisition cost per funded deal</span><span>~$600</span></div>
+      <p class="note">Plug in real numbers on the call: avg funded amount, your fee %, credit-build price, close rate, states, monthly capacity.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="card">
+      <div class="owner s">To lock on this call</div>
+      <ul>
+        <li>Upfront price + what's included</li>
+        <li>Backend split on funded deals (if any)</li>
+        <li>Who takes the sales call — us or your team</li>
+        <li>States you can operate in</li>
+        <li>Capacity per month</li>
+        <li>Brand: new name or yours</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>Mockup only. Placeholder brand "Northstar Capital Partners." Broker-not-lender, no guaranteed approvals.</footer>
+</div>
+</body>
+</html>

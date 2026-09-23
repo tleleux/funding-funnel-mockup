@@ -1,170 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Funding Funnel — Partnership Mockup</title>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0f1417;--card:#171e22;--line:#26313a;--text:#e8edf0;--muted:#9aa8b3;--em:#22c47a;--em2:#1a9d61;--amber:#f5b342;--blue:#4aa3ff}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
-h1,h2,h3{font-family:Sora,Inter,sans-serif}
-.tag{display:inline-block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--em);font-weight:600;margin-bottom:8px}
-h1{font-size:28px;line-height:1.15;margin-bottom:10px}
-.sub{color:var(--muted);font-size:15px;margin-bottom:24px}
-.pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
-.pill{border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--muted)}
-.pill b{color:var(--text)}
-.flow{position:relative;padding-left:34px}
-.flow:before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:var(--line)}
-.step{position:relative;margin-bottom:18px}
-.step .num{position:absolute;left:-34px;top:2px;width:28px;height:28px;border-radius:50%;background:var(--card);border:2px solid var(--em);color:var(--em);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;font-family:Sora}
-.step.j .num{border-color:var(--amber);color:var(--amber)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-.card h3{font-size:17px;margin-bottom:4px}
-.owner{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
-.owner.r{color:var(--em)} .owner.j{color:var(--amber)} .owner.s{color:var(--blue)}
-.card p{color:var(--muted);font-size:14px}
-.card ul{margin:8px 0 0 16px;color:var(--muted);font-size:14px}
-.card li{margin-bottom:3px}
-.btn{display:inline-block;margin-top:12px;background:var(--em);color:#06120b;font-weight:600;padding:10px 16px;border-radius:10px;text-decoration:none;font-size:14px}
-.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--text);margin-left:6px}
-.shot{width:100%;border-radius:10px;border:1px solid var(--line);margin-top:12px;display:block}
-.bands{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.band{border-radius:10px;padding:10px;font-size:13px;border:1px solid var(--line)}
-.band b{display:block;font-size:14px;margin-bottom:2px}
-.band.g{border-color:var(--em)} .band.y{border-color:var(--amber)}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
-.side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
-.side h3{font-size:15px;margin-bottom:8px}
-.side.r h3{color:var(--em)} .side.j h3{color:var(--amber)}
-.side li{font-size:13px;color:var(--muted);margin-left:14px;margin-bottom:4px}
-.money{margin-top:24px}
-.money .card{border-color:var(--em2)}
-.row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
-.row:last-child{border-bottom:0}
-.row span:last-child{font-weight:600}
-.note{font-size:12px;color:var(--muted);margin-top:10px}
-.q{margin-top:24px}
-.q li{color:var(--text);font-size:14px;margin-left:16px;margin-bottom:6px}
-footer{margin-top:36px;font-size:12px;color:var(--muted);text-align:center}
-@media(max-width:420px){.split{grid-template-columns:1fr}h1{font-size:24px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northstar Capital Partners | Business Funding Readiness</title>
+  <meta name="description" content="Northstar Capital Partners helps business owners become funding-ready. Score your entity, credit, financials and documentation with our free readiness assessment.">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
-<div class="wrap">
-  <span class="tag">Partnership mockup</span>
-  <h1>Business Funding Funnel<br>Reactiiv × Julian</h1>
-  <p class="sub">We generate and pre-qualify the demand, close the upfront, and hand off. You fulfill the credit + funding and keep the funding on the backend.</p>
 
-  <div class="pill-row">
-    <span class="pill"><b style="color:var(--em)">Green</b> = Reactiiv</span>
-    <span class="pill"><b style="color:var(--amber)">Gold</b> = Julian</span>
-    <span class="pill"><b style="color:var(--blue)">Blue</b> = shared</span>
-  </div>
+<!-- Skip link -->
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="flow">
-    <div class="step"><div class="num">1</div><div class="card">
-      <div class="owner r">Reactiiv</div>
-      <h3>Scrape & target leads</h3>
-      <p>Business owners who fit the profile: 6+ months in business, active revenue, looking for capital or credit. Pulled from public business data + paid social lookalikes.</p>
-    </div></div>
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brandmark" aria-label="Northstar Capital Partners — Home">
+      Northstar <span>Capital</span>
+    </a>
 
-    <div class="step"><div class="num">2</div><div class="card">
-      <div class="owner r">Reactiiv</div>
-      <h3>Outreach → landing page</h3>
-      <p>Cold outreach + paid ads drive every lead to one page. Hook: "Find out in 3 minutes if your business is fundable."</p>
-      <a class="btn" href="funnel/index.html">Open landing page</a>
-      <img class="shot" src="assets/northstar-home.png" alt="Landing page">
-    </div></div>
+    <!-- Desktop nav -->
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
 
-    <div class="step"><div class="num">3</div><div class="card">
-      <div class="owner r">Reactiiv</div>
-      <h3>9-question readiness assessment</h3>
-      <p>Four pillars: entity & structure, credit profile, financials, documentation. Each answer scores 3/2/1/0. These are the actual underwriting inputs, so the quiz does the qualifying.</p>
-      <a class="btn" href="funnel/assessment.html">Take the assessment</a>
-      <img class="shot" src="assets/northstar-assessment.png" alt="Assessment">
-    </div></div>
-
-    <div class="step"><div class="num">4</div><div class="card">
-      <div class="owner r">Reactiiv</div>
-      <h3>Lead form gates the score</h3>
-      <p>Name, email, phone, TCPA consent before the result shows. Every answer + score fires into our CRM instantly. Lead gets SMS + email with their score on the spot.</p>
-      <div class="bands">
-        <div class="band g"><b>Funding Ready ≥80%</b>Straight to a call</div>
-        <div class="band g"><b>Nearly Ready ≥60%</b>Straight to a call</div>
-        <div class="band y"><b>Building ≥35%</b>Credit-build offer</div>
-        <div class="band y"><b>Foundation &lt;35%</b>Credit-build offer</div>
+      <div class="nav-drop">
+        <button class="nav-drop__btn" type="button" aria-expanded="false" aria-haspopup="true">
+          Services <span class="nav-drop__caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-drop__menu" role="menu">
+          <a href="business.html" role="menuitem">Business</a>
+          <a href="business.html#personal" role="menuitem">Personal</a>
+          <a href="business.html#real-estate" role="menuitem">Real Estate</a>
+        </div>
       </div>
-    </div></div>
 
-    <div class="step"><div class="num">5</div><div class="card">
-      <div class="owner r">Reactiiv</div>
-      <h3>Qualified leads book a call</h3>
-      <p>Only qualified bands hit the calendar. Nurture sequence per band handles no-shows and the not-ready-yet crowd. Closer sees the full quiz profile before dialing.</p>
-    </div></div>
+      <a href="contact.html">Contact</a>
+      <a href="assessment.html" class="btn btn--primary btn--sm nav-cta">Take the assessment →</a>
+    </nav>
 
-    <div class="step"><div class="num">6</div><div class="card">
-      <div class="owner r">Reactiiv</div>
-      <h3>Close on an upfront payment</h3>
-      <p>We sell the engagement and collect the upfront. Client is committed and paid before they ever reach fulfillment.</p>
-    </div></div>
+    <!-- Mobile toggle -->
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <div class="step j"><div class="num">7</div><div class="card">
-      <div class="owner j">Julian</div>
-      <h3>Handoff to Julian's team</h3>
-      <p>Client record, quiz answers, score, docs status and call notes pushed over. Warm intro, no re-qualification needed.</p>
-    </div></div>
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="business.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="assessment.html" class="btn btn--primary">Take the assessment →</a>
+</nav>
 
-    <div class="step j"><div class="num">8</div><div class="card">
-      <div class="owner j">Julian</div>
-      <h3>Fulfillment: credit build + funding placement</h3>
-      <p>Your team runs the credit build and places the funding. You keep the funding revenue on the backend.</p>
-    </div></div>
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main id="main">
 
-    <div class="step"><div class="num" style="border-color:var(--blue);color:var(--blue)">9</div><div class="card">
-      <div class="owner s">Shared</div>
-      <h3>Re-score & recycle</h3>
-      <p>Building / Foundation clients re-take the assessment after 60–90 days of credit build → move to funding. One lead, two revenue events.</p>
-    </div></div>
+  <!-- Trust bar -->
+  <div class="trust-bar" role="alert">
+    <strong>Transparency notice:</strong> We are a broker, not a lender — no guaranteed approvals, ever. Our <span data-fee></span> success fee is charged only when a round of service closes.
   </div>
 
-  <div class="split">
-    <div class="side r"><h3>Reactiiv owns</h3><ul>
-      <li>Lead scraping + list building</li><li>Outreach + paid traffic</li><li>Funnel, domain, quiz</li><li>CRM pipeline + nurture</li><li>Booking + sales call</li><li>Upfront payment collection</li></ul></div>
-    <div class="side j"><h3>Julian owns</h3><ul>
-      <li>Business credit build</li><li>Funding placement</li><li>Lender relationships</li><li>Client relationship post-close</li><li>Backend funding revenue</li><li>State coverage / licensing</li></ul></div>
-  </div>
+  <!-- ── HERO ── -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero__cols">
 
-  <div class="money">
-    <div class="card">
-      <div class="owner r">Sample economics — placeholder numbers</div>
-      <div class="row"><span>Cost per quiz lead</span><span>$30</span></div>
-      <div class="row"><span>Lead → booked call</span><span>20%</span></div>
-      <div class="row"><span>Call → closed</span><span>25%</span></div>
-      <div class="row"><span>Leads needed per funded deal</span><span>~20</span></div>
-      <div class="row"><span>Acquisition cost per funded deal</span><span>~$600</span></div>
-      <p class="note">Plug in real numbers on the call: avg funded amount, your fee %, credit-build price, close rate, states, monthly capacity.</p>
+        <!-- Left: copy -->
+        <div class="hero__left">
+          <span class="eyebrow eyebrow--light">Business Funding Readiness</span>
+          <h1 id="hero-h1">Know where you stand<em>—</em>before you apply.</h1>
+          <p class="hero__sub">
+            Most business owners are turned down for problems they could have corrected in a matter of weeks.
+            <span data-brand-short></span> scores your readiness across four pillars, shows you exactly what is
+            holding you back, and guides you through closing the gaps so your file meets lenders on their terms.
+          </p>
+          <div class="hero__ctas">
+            <a href="assessment.html" class="btn btn--primary">Take the free assessment →</a>
+            <a href="#process" class="btn btn--ghost">How it works</a>
+          </div>
+
+          <div class="stats" aria-label="Key figures">
+            <div class="stat">
+              <div class="stat__num">4</div>
+              <div class="stat__label">Pillars scored: entity, credit, financials, documentation</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">10</div>
+              <div class="stat__label">Minute readiness assessment with an instant score</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num" data-fee></div>
+              <div class="stat__label">Success fee at the close of each round — nothing upfront</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: mini-quiz preview -->
+        <div class="hero__aside" aria-label="Assessment preview">
+          <div class="quiz-shell mini-quiz" id="mini-quiz" role="complementary">
+            <div class="quiz__top">
+              <span>Question 1 / 9 — Preview</span>
+              <span>Funding Readiness</span>
+            </div>
+            <div class="quiz__bar" aria-hidden="true">
+              <div class="quiz__bar-fill" style="width:0%"></div>
+            </div>
+            <div class="quiz-body">
+              <span class="quiz__pillar">01 · Entity &amp; Structure</span>
+              <p class="quiz__text">How is your business legally registered?</p>
+              <div class="quiz__opts">
+                <label class="quiz__opt">
+                  <input type="radio" name="preview" style="display:none">
+                  <span>Active LLC or corporation in good standing with the state</span>
+                </label>
+                <label class="quiz__opt">
+                  <input type="radio" name="preview" style="display:none">
+                  <span>Registered, but filings or state standing need attention</span>
+                </label>
+                <label class="quiz__opt">
+                  <input type="radio" name="preview" style="display:none">
+                  <span>Sole proprietor or DBA only</span>
+                </label>
+                <label class="quiz__opt">
+                  <input type="radio" name="preview" style="display:none">
+                  <span>Not formally registered yet</span>
+                </label>
+              </div>
+              <p style="font-size:.8rem;color:var(--ink-500);margin-top:14px;text-align:center">
+                Select any answer to begin the full assessment →
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.hero__cols -->
     </div>
-  </div>
+  </section>
 
-  <div class="q">
-    <div class="card">
-      <div class="owner s">To lock on this call</div>
-      <ul>
-        <li>Upfront price + what's included</li>
-        <li>Backend split on funded deals (if any)</li>
-        <li>Who takes the sales call — us or your team</li>
-        <li>States you can operate in</li>
-        <li>Capacity per month</li>
-        <li>Brand: new name or yours</li>
-      </ul>
+  <!-- ── SERVICES ── -->
+  <section class="section section--alt" aria-labelledby="services-h2">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">What We Do</span>
+        <h2 id="services-h2">Three services, one outcome.</h2>
+        <p>We do not chase approvals. We repair the underlying profile so approvals stop being a coin flip.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="card__tag">Assessment</span>
+          <h3>Funding Readiness Assessment</h3>
+          <p>A scored review of your entity, credit history, financials and documentation — plus a prioritized action plan you can act on the same day.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">Credit</span>
+          <h3>Business Credit Building</h3>
+          <p>Establishing and strengthening a business credit profile that stands apart from your personal file — the right accounts, in the right order, reported correctly.</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">Strategy</span>
+          <h3>Capital Position Blueprint</h3>
+          <p>Matching your profile to realistic funding products, preparing the application file, and sequencing requests so inquiries and declines do not work against you.</p>
+        </article>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <footer>Mockup only. Placeholder brand "Northstar Capital Partners." Broker-not-lender, no guaranteed approvals.</footer>
-</div>
+  <!-- ── WHO WE SERVE ── -->
+  <section class="section" aria-labelledby="who-h2">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Who We Serve</span>
+        <h2 id="who-h2" style="margin-top:16px">Built for owners who are tired of guessing.</h2>
+        <p style="margin-top:18px">
+          First-time applicants who have never navigated a funding process. Established owners who were declined
+          and never received a real explanation. Operators who need working capital, equipment financing, or a
+          line of credit and want to approach lenders once — prepared. If you run the business, we can tell you
+          exactly where you stand.
+        </p>
+        <div class="markets" aria-label="Industries served">
+          <span class="market">Startups</span>
+          <span class="market">Trucking &amp; Logistics</span>
+          <span class="market">Construction</span>
+          <span class="market">Home Services</span>
+          <span class="market">Retail &amp; E-commerce</span>
+          <span class="market">Professional Services</span>
+          <span class="market">Real Estate</span>
+        </div>
+        <p style="margin-top:28px">
+          <a href="about.html" style="color:var(--emerald);font-weight:600">More about the firm →</a>
+        </p>
+      </div>
+
+      <!-- Decorative art block -->
+      <div class="split__art" aria-hidden="true">
+        <svg viewBox="0 0 360 280" width="100%" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="rgba(232,236,228,.12)" stroke-width="1">
+            <line x1="0" y1="40"  x2="360" y2="40"/>
+            <line x1="0" y1="80"  x2="360" y2="80"/>
+            <line x1="0" y1="120" x2="360" y2="120"/>
+            <line x1="0" y1="160" x2="360" y2="160"/>
+            <line x1="0" y1="200" x2="360" y2="200"/>
+            <line x1="0" y1="240" x2="360" y2="240"/>
+            <line x1="40"  y1="0" x2="40"  y2="280"/>
+            <line x1="80"  y1="0" x2="80"  y2="280"/>
+            <line x1="120" y1="0" x2="120" y2="280"/>
+            <line x1="160" y1="0" x2="160" y2="280"/>
+            <line x1="200" y1="0" x2="200" y2="280"/>
+            <line x1="240" y1="0" x2="240" y2="280"/>
+            <line x1="280" y1="0" x2="280" y2="280"/>
+            <line x1="320" y1="0" x2="320" y2="280"/>
+          </g>
+          <g stroke="#1E9E6A" stroke-width="1.5" opacity=".6">
+            <path d="M60 220 L60 140 L120 100 L180 140 L180 220 Z"/>
+            <path d="M180 220 L180 155 L240 118 L300 155 L300 220 Z"/>
+            <line x1="40" y1="220" x2="320" y2="220"/>
+          </g>
+          <g fill="rgba(30,158,106,.15)">
+            <rect x="76"  y="168" width="22" height="22"/>
+            <rect x="122" y="168" width="22" height="22"/>
+            <rect x="208" y="180" width="20" height="20"/>
+            <rect x="254" y="180" width="20" height="20"/>
+          </g>
+          <text x="180" y="260" text-anchor="middle" fill="rgba(232,236,228,.3)" font-size="11" font-family="Inter,sans-serif" font-weight="600" letter-spacing="0.12em" text-transform="uppercase">FUNDING PROFILE</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STANDARDS / VALUES ── -->
+  <section class="section section--alt" aria-labelledby="values-h2">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How We Work</span>
+        <h2 id="values-h2">Five standards we hold without exception.</h2>
+        <p>This industry is packed with promises. We would rather be the firm that gives you an honest answer early and then gets to work.</p>
+      </div>
+
+      <div class="values">
+        <div class="value-row">
+          <span class="value-n">01</span>
+          <div>
+            <h4>Tell the truth first</h4>
+            <p>If you are not fundable yet, you hear that in the first conversation — along with what it takes to change it and a realistic timeline.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">02</span>
+          <div>
+            <h4>No guaranteed approvals</h4>
+            <p>Nobody can guarantee a lender's decision. We improve the odds by improving the file, and we say so plainly.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">03</span>
+          <div>
+            <h4>Repair the profile, not just the paperwork</h4>
+            <p>Cosmetic applications get declined. Structure, credit history and documentation are what underwriters actually score.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">04</span>
+          <div>
+            <h4>Move at the pace the work demands</h4>
+            <p>Some gaps close in days; others take months of reporting history to season. We sequence the plan so no time is wasted.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">05</span>
+          <div>
+            <h4>You leave knowing your own profile</h4>
+            <p>Every engagement ends with you able to read your funding profile and stay lender-ready without us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROCESS ── -->
+  <section class="section process" id="process" aria-labelledby="process-h2">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow eyebrow--light">The Process</span>
+        <h2 id="process-h2" style="color:var(--on-dark)">Three steps to your plan.</h2>
+        <p style="color:var(--on-dark-muted)">Getting started is straightforward, and the first step costs you nothing but ten minutes.</p>
+      </div>
+
+      <div class="rail" role="list">
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">01 &nbsp; Assess</div>
+          <h3>Score your readiness</h3>
+          <p>Answer a short series of questions about your business. You receive an instant readiness score and band.</p>
+        </div>
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">02 &nbsp; Review</div>
+          <h3>Walk the results</h3>
+          <p>We review your results together and map the gaps in priority order, with realistic timelines attached.</p>
+        </div>
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">03 &nbsp; Execute</div>
+          <h3>Do the work</h3>
+          <p>Close the gaps with our guidance, then approach lenders with a file that supports the amount you are asking for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band">
+        <span class="eyebrow eyebrow--light">Get Started</span>
+        <h2>Find out exactly where you stand.</h2>
+        <p>Take the Funding Readiness Assessment and get your score, your band, and your next steps in about ten minutes.</p>
+        <div class="btn-row">
+          <a href="assessment.html" class="btn btn--primary">Take the assessment →</a>
+          <a href="contact.html"    class="btn btn--ghost">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-foot" aria-label="Site footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brandmark">Northstar <span>Capital</span></span>
+        <p>
+          <span data-brand></span> helps business owners become funding-ready —
+          clean structure, strong credit profile, lender-grade documents.
+        </p>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-label">Explore</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="assessment.html">Assessment</a></li>
+          <li><a href="business.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <div class="foot-label">Contact</div>
+        <address>
+          <span data-brand></span><br>
+          [ADDRESS]<br>
+          <a href="tel:[PHONE]">[PHONE]</a><br>
+          <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 <span data-brand></span>. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+
+    <p class="foot-disclaimer">
+      <span data-brand></span> provides business funding readiness consulting and loan brokering services.
+      We are not a bank or a direct lender — we present your file to funding partners and charge a
+      <span data-fee></span> success fee at the close of each round of service.
+      We do not guarantee funding approvals or specific amounts, and nothing on this site constitutes legal,
+      tax, or financial advice. Funding decisions are made solely by the lenders and institutions you apply to.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
 </body>
 </html>
