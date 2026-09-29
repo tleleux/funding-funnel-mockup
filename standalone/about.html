@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Northstar Capital Partners</title>
+  <meta name="description" content="Northstar Capital Partners is a business funding readiness and brokering firm. We score your profile, close the gaps, then take your file to funding partners.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* ============================================================
+   Northstar Capital Partners — Static Site Stylesheet
+   Brand: Sora (headings) · Inter (body)
+   Palette: #0F1720 dark | #F6F7F4 light | #1E9E6A emerald | #3B5BDB slate-blue
+   ============================================================ */
+
+/* ---------- Google Fonts ---------- */
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Colors */
+  --ink:           #0F1720;
+  --ink-700:       #1a2535;
+  --ink-500:       #2e3d52;
+  --surface-1:     #F6F7F4;
+  --surface-2:     #eef0ec;
+  --surface-3:     #e4e6e0;
+  --emerald:       #1E9E6A;
+  --emerald-dark:  #178557;
+  --slate-blue:    #3B5BDB;
+  --slate-dark:    #2d47bf;
+  --on-dark:       #e8ece4;
+  --on-dark-muted: #8fa3a8;
+  --border:        rgba(15,23,32,0.12);
+  --border-dark:   rgba(232,236,228,0.15);
+
+  /* Typography */
+  --font-head:  'Sora', sans-serif;
+  --font-body:  'Inter', sans-serif;
+
+  /* Layout */
+  --wrap:    1200px;
+  --radius:  10px;
+  --radius-sm: 6px;
+
+  /* Fee / Brand (changed in app.js) */
+  --success-fee: 10%;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--surface-1);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font: inherit; }
+ul, ol { list-style: none; }
+address { font-style: normal; }
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  line-height: 1.2;
+}
+h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+h4 { font-size: 1.1rem; }
+p { max-width: 68ch; }
+em { font-style: normal; color: var(--emerald); }
+
+/* ---------- Layout ---------- */
+.wrap {
+  width: min(var(--wrap), 100% - 40px);
+  margin-inline: auto;
+}
+.section {
+  padding-block: 80px;
+}
+.section--sm { padding-block: 48px; }
+.section--dark {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.section--alt { background: var(--surface-2); }
+
+.sec-head { margin-bottom: 52px; }
+.sec-head h2 { margin-top: 12px; }
+.sec-head p  { margin-top: 16px; color: var(--ink-500); max-width: 58ch; }
+.sec-head.center { text-align: center; }
+.sec-head.center p { margin-inline: auto; }
+
+/* ---------- Eyebrow ---------- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--emerald);
+}
+.eyebrow--light { color: var(--emerald); opacity: .85; }
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--emerald);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: .85rem;
+  font-weight: 600;
+  z-index: 9999;
+  border-radius: var(--radius-sm);
+}
+.skip-link:focus { top: 8px; }
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--ink);
+  border-bottom: 1px solid var(--border-dark);
+}
+.site-head .wrap {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 68px;
+}
+.brandmark {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--on-dark);
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+.brandmark span { color: var(--emerald); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+.nav-links a {
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--on-dark-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color .18s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--on-dark); }
+
+/* Dropdown */
+.nav-drop { position: relative; }
+.nav-drop__btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .88rem;
+  font-weight: 500;
+  color: var(--on-dark-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: color .18s;
+}
+.nav-drop__btn:hover { color: var(--on-dark); }
+.nav-drop__caret {
+  display: inline-block;
+  width: 0; height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  transition: transform .18s;
+}
+.nav-drop__btn[aria-expanded="true"] .nav-drop__caret { transform: rotate(180deg); }
+.nav-drop__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink-700);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius);
+  padding: 8px;
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.3);
+}
+.nav-drop__menu.open { display: flex; }
+.nav-drop__menu a {
+  display: block;
+  padding: 9px 14px;
+  font-size: .88rem;
+  color: var(--on-dark-muted);
+  border-radius: var(--radius-sm);
+}
+.nav-drop__menu a:hover { background: var(--ink-500); color: var(--on-dark); }
+
+/* Mobile toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--on-dark);
+  border-radius: 2px;
+  transition: transform .2s, opacity .2s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-cta {
+  margin-left: 8px;
+}
+
+/* Mobile nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 68px 0 0;
+  background: var(--ink);
+  z-index: 99;
+  padding: 24px 20px;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  display: block;
+  padding: 12px 16px;
+  color: var(--on-dark-muted);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+}
+.mobile-nav a:hover { color: var(--on-dark); background: var(--ink-700); }
+.mobile-nav .btn { margin-top: 16px; text-align: center; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: .92rem;
+  font-weight: 600;
+  transition: background .18s, color .18s, box-shadow .18s;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--emerald);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--emerald-dark); }
+
+.btn--slate {
+  background: var(--slate-blue);
+  color: #fff;
+}
+.btn--slate:hover { background: var(--slate-dark); }
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--emerald);
+  color: var(--emerald);
+}
+.btn--outline:hover { background: var(--emerald); color: #fff; }
+
+.btn--ghost {
+  background: transparent;
+  border: 2px solid var(--border-dark);
+  color: var(--on-dark);
+}
+.btn--ghost:hover { border-color: var(--emerald); color: var(--emerald); }
+
+.btn--sm { padding: 9px 18px; font-size: .82rem; }
+
+/* ============================================================
+   TRUST BAR
+   ============================================================ */
+.trust-bar {
+  background: var(--slate-blue);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px 20px;
+  letter-spacing: .015em;
+}
+.trust-bar strong { font-weight: 700; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding-block: 80px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(30,158,106,.12) 0%, transparent 65%),
+              radial-gradient(ellipse 50% 50% at 20% 70%, rgba(59,91,219,.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--border-dark) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--border-dark) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: .35;
+  pointer-events: none;
+}
+.hero .wrap { position: relative; z-index: 1; }
+
+.hero__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero__left {}
+.hero h1 { margin-top: 16px; }
+.hero__sub {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: var(--on-dark-muted);
+  max-width: 54ch;
+}
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* Stats row */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-dark);
+}
+.stat__num {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--emerald);
+}
+.stat__label {
+  font-size: .8rem;
+  color: var(--on-dark-muted);
+  margin-top: 4px;
+  max-width: 22ch;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   QUIZ SHELL (preview + full)
+   ============================================================ */
+.quiz-shell {
+  background: var(--surface-1);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 48px rgba(0,0,0,.3);
+  overflow: hidden;
+}
+.quiz__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--ink-700);
+  border-bottom: 1px solid var(--border-dark);
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--on-dark-muted);
+}
+.quiz__bar {
+  height: 3px;
+  background: var(--border-dark);
+  position: relative;
+}
+.quiz__bar-fill {
+  position: absolute;
+  top: 0; left: 0; height: 100%;
+  background: var(--emerald);
+  transition: width .4s ease;
+}
+.quiz__body { padding: 24px; }
+.quiz__pillar {
+  display: block;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 10px;
+}
+.quiz__text {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.quiz__opts {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+.quiz__opt {
+  display: block;
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: .9rem;
+  color: var(--ink);
+  transition: border-color .15s, background .15s;
+  user-select: none;
+}
+.quiz__opt:hover   { border-color: var(--emerald); background: rgba(30,158,106,.06); }
+.quiz__opt.selected { border-color: var(--emerald); background: rgba(30,158,106,.1); font-weight: 600; }
+.quiz__opt input   { display: none; }
+
+.quiz__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+.quiz__back {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink-500);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: color .15s;
+}
+.quiz__back:hover { color: var(--ink); }
+.quiz__back:disabled { opacity: .35; cursor: default; }
+
+.quiz__next {
+  background: var(--emerald);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: .88rem;
+  font-weight: 600;
+  transition: background .15s;
+  min-width: 130px;
+}
+.quiz__next:hover    { background: var(--emerald-dark); }
+.quiz__next:disabled { background: var(--surface-3); color: var(--ink-500); cursor: default; }
+
+/* ============================================================
+   LEAD FORM (inside quiz)
+   ============================================================ */
+.lead-form { padding: 24px; }
+.lead-form h3 {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.lead-form p { font-size: .88rem; color: var(--ink-500); margin-bottom: 20px; }
+
+.form-group {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--ink-700);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.field input,
+.field textarea,
+.field select {
+  padding: 10px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: .92rem;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color .15s, box-shadow .15s;
+  width: 100%;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--emerald);
+  box-shadow: 0 0 0 3px rgba(30,158,106,.12);
+}
+.field textarea { resize: vertical; min-height: 100px; }
+.field .required-star { color: var(--emerald); margin-left: 2px; }
+
+.tcpa-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: .8rem;
+  color: var(--ink-500);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+.tcpa-check input { margin-top: 3px; flex-shrink: 0; accent-color: var(--emerald); }
+
+/* ============================================================
+   RESULTS PANEL
+   ============================================================ */
+.results { padding: 28px 24px; }
+.results__score-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.results__pct {
+  font-family: var(--font-head);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--emerald);
+}
+.results__band {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.results__summary {
+  font-size: .93rem;
+  color: var(--ink-500);
+  margin-bottom: 22px;
+  max-width: 60ch;
+}
+.results__recs h4 {
+  font-family: var(--font-head);
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--emerald);
+  margin-bottom: 12px;
+}
+.results__rec-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.results__rec-item {
+  display: flex;
+  gap: 10px;
+  font-size: .88rem;
+  color: var(--ink-700);
+  align-items: flex-start;
+}
+.results__rec-item::before {
+  content: '→';
+  color: var(--emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Pillar breakdown */
+.pillars {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.pillar-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+.pillar-row__name { font-size: .82rem; font-weight: 600; color: var(--ink-700); }
+.pillar-row__bar {
+  grid-column: 1 / -1;
+  height: 6px;
+  background: var(--surface-3);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.pillar-row__fill {
+  height: 100%;
+  background: var(--emerald);
+  border-radius: 99px;
+  transition: width .6s ease;
+}
+.pillar-row__pct { font-size: .78rem; font-weight: 600; color: var(--emerald); }
+
+.results__cta {
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: .88rem;
+  color: var(--ink-700);
+}
+.results__cta strong { color: var(--ink); }
+
+/* ============================================================
+   CARDS (services, etc.)
+   ============================================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.08); transform: translateY(-2px); }
+.card--dark {
+  background: var(--ink-700);
+  border-color: var(--border-dark);
+  color: var(--on-dark);
+}
+.card h3 { margin-top: 0; }
+.card p { font-size: .93rem; color: var(--ink-500); margin-top: 12px; }
+.card--dark p { color: var(--on-dark-muted); }
+.card__tag {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 14px;
+}
+
+/* ============================================================
+   TWO-COLUMN SPLIT
+   ============================================================ */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.split__art {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  background: var(--ink-700);
+  border-radius: var(--radius);
+  min-height: 300px;
+  color: var(--on-dark-muted);
+  font-size: .9rem;
+  text-align: center;
+}
+
+/* ============================================================
+   MARKETS / CHIPS
+   ============================================================ */
+.markets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+.market {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--ink-700);
+}
+
+/* ============================================================
+   VALUES / STANDARDS LIST
+   ============================================================ */
+.values { display: grid; gap: 0; }
+.value-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding-block: 28px;
+  border-bottom: 1px solid var(--border);
+}
+.value-row:last-child { border-bottom: none; }
+.value-n {
+  font-family: var(--font-head);
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--emerald);
+  letter-spacing: .08em;
+  white-space: nowrap;
+  min-width: 28px;
+  padding-top: 3px;
+}
+.value-row h4 { font-size: 1rem; }
+.value-row p  { font-size: .92rem; color: var(--ink-500); margin-top: 6px; }
+
+/* ============================================================
+   PROCESS RAIL
+   ============================================================ */
+.process {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+.rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  margin-top: 48px;
+  border-top: 1px solid var(--border-dark);
+}
+.rail__step {
+  padding: 40px 32px 32px;
+  border-right: 1px solid var(--border-dark);
+}
+.rail__step:last-child { border-right: none; }
+.rail__n {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--emerald);
+}
+.rail__step h3 { color: var(--on-dark); margin-top: 16px; font-size: 1.2rem; }
+.rail__step p  { color: var(--on-dark-muted); margin-top: 8px; font-size: .92rem; }
+
+/* ============================================================
+   FACTS TABLE
+   ============================================================ */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 44px;
+}
+.fact {
+  padding: 24px 28px;
+  border-right: 1px solid var(--border);
+}
+.fact:last-child { border-right: none; }
+.fact__k { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--emerald); margin-bottom: 6px; }
+.fact__v { font-size: .92rem; color: var(--ink-700); font-weight: 500; }
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band {
+  background: var(--ink-700);
+  border-radius: var(--radius);
+  padding: 56px 48px;
+  color: var(--on-dark);
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(30,158,106,.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-band h2 { color: var(--on-dark); }
+.cta-band p  { color: var(--on-dark-muted); margin-top: 14px; font-size: 1.05rem; }
+.cta-band .btn-row {
+  display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px;
+}
+
+/* ============================================================
+   CONTACT FORM PAGE
+   ============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 60px;
+  align-items: start;
+}
+.contact-form { }
+.contact-aside {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+}
+.contact-aside h3 { font-size: 1.05rem; }
+.contact-aside p, .contact-aside address {
+  font-size: .9rem;
+  color: var(--ink-500);
+  margin-top: 10px;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   ABOUT — STATS ROW
+   ============================================================ */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--on-dark);
+  margin-block: 48px;
+}
+.about-stat {
+  padding: 36px 28px;
+  border-right: 1px solid var(--border-dark);
+}
+.about-stat:last-child { border-right: none; }
+.about-stat__num {
+  font-family: var(--font-head);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--emerald);
+}
+.about-stat__label { font-size: .82rem; color: var(--on-dark-muted); margin-top: 6px; line-height: 1.4; }
+
+/* ============================================================
+   SOLUTION MARKETS LIST
+   ============================================================ */
+.sol-markets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+.sol-market {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--ink-700);
+}
+.sol-market::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--emerald);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-foot {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding-top: 64px;
+}
+.foot-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border-dark);
+}
+.foot-brand .brandmark { font-size: 1.1rem; }
+.foot-brand p { font-size: .88rem; color: var(--on-dark-muted); margin-top: 16px; max-width: 40ch; }
+.foot-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  margin-bottom: 18px;
+}
+.foot-col ul { display: grid; gap: 10px; }
+.foot-col a { font-size: .9rem; color: var(--on-dark-muted); transition: color .15s; }
+.foot-col a:hover { color: var(--on-dark); }
+.foot-col address { font-size: .88rem; color: var(--on-dark-muted); line-height: 1.8; }
+.foot-col address a { color: var(--on-dark-muted); }
+.foot-col address a:hover { color: var(--emerald); }
+
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-block: 24px;
+  font-size: .8rem;
+  color: var(--on-dark-muted);
+}
+.foot-bottom span:last-child { display: flex; gap: 18px; }
+.foot-bottom a { color: var(--on-dark-muted); }
+.foot-bottom a:hover { color: var(--emerald); }
+
+.foot-disclaimer {
+  padding: 20px 0 32px;
+  font-size: .78rem;
+  color: var(--on-dark-muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--border-dark);
+  max-width: 100ch;
+}
+
+/* ============================================================
+   ASSESSMENT — FULL QUIZ PAGE
+   ============================================================ */
+.assessment-hero {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding-block: 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.assessment-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 75% 50%, rgba(30,158,106,.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.assessment-hero .wrap { position: relative; z-index: 1; }
+.assessment-hero h1 { margin-top: 14px; }
+.assessment-hero p  { margin-top: 16px; color: var(--on-dark-muted); max-width: 60ch; }
+
+.quiz-container {
+  max-width: 700px;
+  margin-inline: auto;
+  background: var(--surface-1);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 24px rgba(0,0,0,.07);
+  overflow: hidden;
+}
+.quiz-q { display: none; padding: 32px 36px; }
+.quiz-q.active { display: block; }
+
+/* ============================================================
+   SUCCESS MESSAGE
+   ============================================================ */
+.success-msg {
+  background: rgba(30,158,106,.08);
+  border: 1.5px solid var(--emerald);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  font-size: .92rem;
+  color: var(--ink-700);
+  margin-top: 16px;
+  display: none;
+}
+.success-msg.show { display: block; }
+
+/* ============================================================
+   MINI-QUIZ PREVIEW (homepage hero aside)
+   ============================================================ */
+.mini-quiz { min-width: 0; }
+.mini-quiz .quiz-body { padding: 24px; }
+.mini-quiz .quiz__opt { font-size: .85rem; padding: 10px 14px; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 960px) {
+  .hero__cols   { grid-template-columns: 1fr; gap: 40px; }
+  .split        { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .about-stats  { grid-template-columns: 1fr 1fr; }
+  .foot-top     { grid-template-columns: 1fr 1fr; }
+  .stats        { grid-template-columns: 1fr; gap: 24px; }
+  .rail         { grid-template-columns: 1fr; }
+  .rail__step   { border-right: none; border-bottom: 1px solid var(--border-dark); }
+  .rail__step:last-child { border-bottom: none; }
+  .hero__aside  { max-width: 520px; }
+}
+
+@media (max-width: 680px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .section { padding-block: 56px; }
+  .nav-links     { display: none; }
+  .nav-toggle    { display: flex; }
+  .about-stats   { grid-template-columns: 1fr 1fr; }
+  .foot-top      { grid-template-columns: 1fr; }
+  .facts         { grid-template-columns: 1fr; }
+  .fact          { border-right: none; border-bottom: 1px solid var(--border); }
+  .fact:last-child { border-bottom: none; }
+  .cta-band      { padding: 36px 24px; }
+  .quiz-q        { padding: 24px 20px; }
+  .form-row      { grid-template-columns: 1fr; }
+  .results__pct  { font-size: 2.2rem; }
+  .about-stats   { grid-template-columns: 1fr; }
+  .about-stat    { border-right: none; border-bottom: 1px solid var(--border-dark); }
+}
+
+@media (max-width: 400px) {
+  .wrap { width: calc(100% - 24px); }
+  .stats { gap: 16px; }
+}
+
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- HEADER -->
+<header class="site-head">
+  <div class="wrap">
+    <a href="index.html" class="brandmark" aria-label="Northstar Capital Partners — Home">
+      Northstar <span>Capital</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <div class="nav-drop">
+        <button class="nav-drop__btn" type="button" aria-expanded="false" aria-haspopup="true">
+          Services <span class="nav-drop__caret" aria-hidden="true"></span>
+        </button>
+        <div class="nav-drop__menu" role="menu">
+          <a href="business.html" role="menuitem">Business</a>
+          <a href="business.html#personal" role="menuitem">Personal</a>
+          <a href="business.html#real-estate" role="menuitem">Real Estate</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+      <a href="assessment.html" class="btn btn--primary btn--sm nav-cta">Take the assessment →</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="business.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <a href="assessment.html" class="btn btn--primary">Take the assessment →</a>
+</nav>
+
+<!-- MAIN -->
+<main id="main">
+
+  <!-- Hero -->
+  <section class="assessment-hero" aria-labelledby="about-h1">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--light">About the Firm</span>
+      <h1 id="about-h1">Funding readiness, not funding promises.</h1>
+      <p>
+        <span data-brand></span> exists because too many solid businesses are declined for fixable reasons
+        — and nobody ever tells them what those reasons actually were.
+      </p>
+    </div>
+  </section>
+
+  <!-- Firm overview -->
+  <section class="section" aria-labelledby="firm-h2">
+    <div class="wrap">
+      <span class="eyebrow">The Firm</span>
+      <h2 id="firm-h2" style="margin-top:14px">What we do.</h2>
+      <p style="margin-top:18px;font-size:1.05rem;max-width:68ch;color:var(--ink-700)">
+        We are a business funding readiness and brokering firm. We score where your business stands today
+        across entity structure, credit profile, financial history and documentation, work with you to
+        eliminate the gaps that cause declines, then present the completed file to our funding partners on
+        your behalf. We are not a lender, so we do not make the credit decision. We are paid a
+        <span data-fee></span> success fee at the close of each round of service — nothing upfront.
+      </p>
+
+      <!-- Stats -->
+      <div class="about-stats" aria-label="Key figures">
+        <div class="about-stat">
+          <div class="about-stat__num">4</div>
+          <div class="about-stat__label">Pillars scored in every assessment</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__num">10</div>
+          <div class="about-stat__label">Minutes to a complete readiness score</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__num">1</div>
+          <div class="about-stat__label">Prioritized action plan, in plain English</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__num" data-fee></div>
+          <div class="about-stat__label">Success fee — paid only when a round closes</div>
+        </div>
+      </div>
+
+      <!-- Funding types -->
+      <div class="sol-markets">
+        <div class="sol-market">Business Line of Credit</div>
+        <div class="sol-market">Equipment Financing</div>
+        <div class="sol-market">Asset-Based Lending</div>
+        <div class="sol-market">Commercial Real Estate Loans</div>
+        <div class="sol-market">Rate &amp; Term Refinances</div>
+        <div class="sol-market">Cash-Out Refinances</div>
+        <div class="sol-market">Purchases &amp; Rehab</div>
+        <div class="sol-market">Foreclosure Sale Financing</div>
+        <div class="sol-market">Residential Transitions</div>
+        <div class="sol-market">Small Business Loans</div>
+        <div class="sol-market">Personal Loans</div>
+        <div class="sol-market">Accounts Receivable Financing</div>
+        <div class="sol-market">0% Business Credit Stacking</div>
+        <div class="sol-market">SBA Loans</div>
+        <div class="sol-market">Bridge Loans</div>
+        <div class="sol-market">Long-Term Business Loans</div>
+        <div class="sol-market">Short-Term Business Loans</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it matters -->
+  <section class="section section--alt" aria-labelledby="why-h2">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow">Why It Matters</span>
+        <h2 id="why-h2" style="margin-top:14px">Declines are usually preventable.</h2>
+        <p style="margin-top:18px;color:var(--ink-700)">
+          Underwriters evaluate a short list of criteria: is the entity clean and verifiable, is there a
+          business credit profile, do the bank statements support the ask, and is the documentation complete
+          and internally consistent. Owners rarely fail on the business itself — they fail on the file.
+          That is the part we fix.
+        </p>
+      </div>
+      <div>
+        <span class="eyebrow">Our Approach</span>
+        <h3 style="margin-top:14px">Diagnose first. Then build.</h3>
+        <p style="margin-top:16px;color:var(--ink-700)">
+          Everything starts with the assessment, because guidance without a diagnosis is just noise.
+          Once we can see the full profile, we sequence the work — the items that unlock the most funding
+          capacity addressed first, the items that need reporting time started immediately.
+        </p>
+        <h3 style="margin-top:32px">What you get.</h3>
+        <p style="margin-top:16px;color:var(--ink-700)">
+          A clean entity and compliance record. A business credit profile that reports to the bureaus.
+          Banking and financial history presented the way underwriters read it. A documentation package
+          that answers questions before they are asked.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process rail -->
+  <section class="section process" aria-labelledby="process-h2">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow eyebrow--light">The Process</span>
+        <h2 id="process-h2" style="color:var(--on-dark)">How an engagement moves.</h2>
+      </div>
+      <div class="rail" role="list">
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">01 &nbsp; Assess</div>
+          <h3>Score the four pillars</h3>
+          <p>Identify the specific gaps holding the profile back.</p>
+        </div>
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">02 &nbsp; Repair</div>
+          <h3>Clean up and strengthen</h3>
+          <p>Entity structure, compliance records and credit posture addressed in priority order.</p>
+        </div>
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">03 &nbsp; Package</div>
+          <h3>Build the file</h3>
+          <p>Lender-grade documentation assembled and formatted the way underwriters read it.</p>
+        </div>
+        <div class="rail__step" role="listitem">
+          <div class="rail__n">04 &nbsp; Apply</div>
+          <h3>Approach the right products</h3>
+          <p>Applications submitted in the sequence that maximizes approval probability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section--alt" aria-labelledby="values-h2">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Core Values</span>
+        <h2 id="values-h2">The standards we hold.</h2>
+        <p>We would rather step away from an engagement than sell a promise we cannot keep.</p>
+      </div>
+
+      <div class="values">
+        <div class="value-row">
+          <span class="value-n">01</span>
+          <div>
+            <h4>Tell the truth first.</h4>
+            <p>If the answer is "not yet," you hear it immediately — along with the path and the realistic timeline.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">02</span>
+          <div>
+            <h4>No guaranteed approvals.</h4>
+            <p>Lenders decide. We change the inputs they score — that is the honest version of this business.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">03</span>
+          <div>
+            <h4>Fix the profile, not the paperwork.</h4>
+            <p>Structure, credit history and documentation are what get underwritten. Surface polish gets declined.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">04</span>
+          <div>
+            <h4>Sequence the work.</h4>
+            <p>Some items report in weeks, some take months. The order matters more than the raw effort.</p>
+          </div>
+        </div>
+        <div class="value-row">
+          <span class="value-n">05</span>
+          <div>
+            <h4>Leave you self-sufficient.</h4>
+            <p>You should finish every engagement able to read and defend your own funding profile — without us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Ready to see where you stand?</h2>
+        <p>The Funding Readiness Assessment is free and takes about ten minutes.</p>
+        <div class="btn-row">
+          <a href="assessment.html" class="btn btn--primary">Take the assessment →</a>
+          <a href="contact.html"    class="btn btn--ghost">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-foot" aria-label="Site footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="brandmark">Northstar <span>Capital</span></span>
+        <p><span data-brand></span> helps business owners become funding-ready — clean structure, strong credit profile, lender-grade documents.</p>
+      </div>
+      <div class="foot-col">
+        <div class="foot-label">Explore</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="assessment.html">Assessment</a></li>
+          <li><a href="business.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <div class="foot-label">Contact</div>
+        <address>
+          <span data-brand></span><br>
+          [ADDRESS]<br>
+          <a href="tel:[PHONE]">[PHONE]</a><br>
+          <a href="mailto:[EMAIL]">[EMAIL]</a>
+        </address>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 <span data-brand></span>. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </span>
+    </div>
+    <p class="foot-disclaimer">
+      <span data-brand></span> provides business funding readiness consulting and loan brokering services.
+      We are not a bank or a direct lender — we present your file to funding partners and charge a
+      <span data-fee></span> success fee at the close of each round of service.
+      We do not guarantee funding approvals or specific amounts, and nothing on this site constitutes legal,
+      tax, or financial advice. Funding decisions are made solely by the lenders and institutions you apply to.
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   Northstar Capital Partners — app.js
+   ============================================================
+   CONFIGURATION — change these in one place and they propagate
+   throughout the site automatically.
+   ============================================================ */
+const BRAND_NAME     = 'Northstar Capital Partners';
+const BRAND_SHORT    = 'Northstar Capital';
+const SUCCESS_FEE    = '10%';           // e.g. change to '8%' → updates all copy
+const LEAD_WEBHOOK_URL = '';            // ← paste your GHL inbound webhook URL here
+
+/* ============================================================
+   ASSESSMENT QUESTIONS
+   9 questions across 4 pillars.
+   Max points per question = 3.  Grand total = 27 pts.
+   Pillar maximums: Entity & Structure 9 | Credit Profile 6 |
+                    Financials 9         | Documentation 3
+   ============================================================ */
+const QUESTIONS = [
+  /* ── ENTITY & STRUCTURE (3 questions, max 9 pts) ── */
+  {
+    id: 'entity_structure',
+    pillar: 'Entity & Structure',
+    pillarKey: 'entity',
+    q: 'How is your business legally registered?',
+    options: [
+      { label: 'Active LLC or corporation in good standing with the state', points: 3 },
+      { label: 'Registered, but filings or state standing need attention',   points: 2 },
+      { label: 'Sole proprietor or DBA only',                               points: 1 },
+      { label: 'Not formally registered yet',                               points: 0 },
+    ],
+  },
+  {
+    id: 'ein_bank',
+    pillar: 'Entity & Structure',
+    pillarKey: 'entity',
+    q: 'Do you have an EIN and a dedicated business bank account?',
+    options: [
+      { label: 'Yes — EIN issued and a business account used for all revenue',      points: 3 },
+      { label: 'Yes — but personal and business funds still flow through one account', points: 2 },
+      { label: 'EIN only, no separate business bank account',                        points: 1 },
+      { label: 'Neither yet',                                                        points: 0 },
+    ],
+  },
+  {
+    id: 'business_age',
+    pillar: 'Entity & Structure',
+    pillarKey: 'entity',
+    q: 'How long has the business been actively operating?',
+    options: [
+      { label: '2 years or more',                 points: 3 },
+      { label: '12 – 24 months',                  points: 2 },
+      { label: '6 – 12 months',                   points: 1 },
+      { label: 'Under 6 months or pre-revenue',   points: 0 },
+    ],
+  },
+
+  /* ── CREDIT PROFILE (2 questions, max 6 pts) ── */
+  {
+    id: 'personal_credit',
+    pillar: 'Credit Profile',
+    pillarKey: 'credit',
+    q: 'Which range best describes your personal credit score?',
+    options: [
+      { label: '720 or above, with low utilization',           points: 3 },
+      { label: '660 – 719',                                    points: 2 },
+      { label: '580 – 659',                                    points: 1 },
+      { label: 'Below 580, or recent derogatory marks on file', points: 0 },
+    ],
+  },
+  {
+    id: 'biz_tradelines',
+    pillar: 'Credit Profile',
+    pillarKey: 'credit',
+    q: 'Does your business have trade lines reporting to D&B, Experian Business, or Equifax Business?',
+    options: [
+      { label: 'Yes — multiple accounts reporting to all three bureaus', points: 3 },
+      { label: 'Yes — one or two accounts reporting to at least one bureau', points: 2 },
+      { label: 'We have accounts but nothing is reporting yet',           points: 1 },
+      { label: 'No business credit profile established',                  points: 0 },
+    ],
+  },
+
+  /* ── FINANCIALS (3 questions, max 9 pts) ── */
+  {
+    id: 'revenue',
+    pillar: 'Financials',
+    pillarKey: 'financials',
+    q: 'What is your average monthly gross revenue over the past six months?',
+    options: [
+      { label: '$30,000 or more',       points: 3 },
+      { label: '$10,000 – $29,999',     points: 2 },
+      { label: '$1 – $9,999',           points: 1 },
+      { label: 'No revenue yet',        points: 0 },
+    ],
+  },
+  {
+    id: 'deposits',
+    pillar: 'Financials',
+    pillarKey: 'financials',
+    q: 'Are your business bank deposits consistent from month to month?',
+    options: [
+      { label: 'Yes — relatively steady with no major unexplained gaps',          points: 3 },
+      { label: 'Mostly — some variation but a clear upward or stable trend',      points: 2 },
+      { label: 'Irregular — significant swings or occasional months with nothing', points: 1 },
+      { label: 'No business account to track deposits yet',                        points: 0 },
+    ],
+  },
+  {
+    id: 'books',
+    pillar: 'Financials',
+    pillarKey: 'financials',
+    q: 'Are your books current and are your last two years of tax returns filed?',
+    options: [
+      { label: 'Yes — bookkeeping is up to date and both returns are filed', points: 3 },
+      { label: 'Bookkeeping is current but one return is still pending',      points: 2 },
+      { label: 'Neither is fully current but we are working on it',          points: 1 },
+      { label: 'No formal bookkeeping and returns are behind',               points: 0 },
+    ],
+  },
+
+  /* ── DOCUMENTATION (1 question, max 3 pts) ── */
+  {
+    id: 'docs',
+    pillar: 'Documentation',
+    pillarKey: 'docs',
+    q: 'Which documents could you produce today if a lender asked?',
+    options: [
+      { label: 'All of: 3 months bank statements, P&L, balance sheet, tax returns, articles of org. + EIN letter', points: 3 },
+      { label: 'Most of the above — missing one or two items',                                                      points: 2 },
+      { label: 'Some — bank statements and maybe one other',                                                        points: 1 },
+      { label: 'None of the above are ready',                                                                       points: 0 },
+    ],
+  },
+];
+
+/* ============================================================
+   SCORING BANDS
+   threshold = score / maxScore  (27 pts)
+   ============================================================ */
+const BANDS = [
+  {
+    min: 0.80,
+    name: 'Funding Ready',
+    summary: `Your profile is in strong shape. The priority now is approaching the right funding products in the right sequence so you do not waste inquiries or leave capacity on the table.`,
+    recommendations: [
+      'Sequence applications so your strongest products are approached first.',
+      'Keep utilization low and deposits consistent throughout the application window.',
+      'Have your full documentation package assembled before the first application goes out.',
+    ],
+  },
+  {
+    min: 0.60,
+    name: 'Nearly Ready',
+    summary: `You are close. A short list of fixable gaps is standing between you and materially better offers — most can be closed in weeks, not months.`,
+    recommendations: [
+      'Close the two or three lowest-scoring areas before submitting applications.',
+      'Strengthen business trade lines so the credit profile stands on its own.',
+      'Tighten bank statement presentation and bring bookkeeping fully current.',
+    ],
+  },
+  {
+    min: 0.35,
+    name: 'Building',
+    summary: `The foundation is partly in place, but applying today would likely produce declines or expensive offers. Focus on entity structure and credit reporting first — those items need time to season.`,
+    recommendations: [
+      'Completely separate business and personal finances.',
+      'Begin reporting business trade lines now so history can age.',
+      'Address derogatory items and high utilization on the personal side.',
+      'Get bookkeeping current and returns filed.',
+    ],
+  },
+  {
+    min: 0,
+    name: 'Foundation Stage',
+    summary: `Do not apply yet. Submitting now would cost you inquiries and declines without changing the outcome. The good news: foundation work moves fast once you start.`,
+    recommendations: [
+      'Register the entity properly and verify good standing with your state.',
+      'Obtain an EIN and open a dedicated business bank account.',
+      'Begin building a business credit profile from zero.',
+      'Establish basic bookkeeping and write a clear use-of-funds statement.',
+    ],
+  },
+];
+
+/* ============================================================
+   PILLAR DEFINITIONS (for breakdown display)
+   ============================================================ */
+const PILLARS = [
+  { key: 'entity',    label: 'Entity & Structure', max: 9 },
+  { key: 'credit',    label: 'Credit Profile',     max: 6 },
+  { key: 'financials',label: 'Financials',         max: 9 },
+  { key: 'docs',      label: 'Documentation',      max: 3 },
+];
+
+const MAX_SCORE = 27; // 9 questions × 3 pts
+
+/* ============================================================
+   UTILITY — inject brand/fee tokens into page text
+   ============================================================ */
+function injectTokens() {
+  document.querySelectorAll('[data-brand]').forEach(el => {
+    el.textContent = BRAND_NAME;
+  });
+  document.querySelectorAll('[data-brand-short]').forEach(el => {
+    el.textContent = BRAND_SHORT;
+  });
+  document.querySelectorAll('[data-fee]').forEach(el => {
+    el.textContent = SUCCESS_FEE;
+  });
+}
+
+/* ============================================================
+   MOBILE NAV
+   ============================================================ */
+function initMobileNav() {
+  const toggle  = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (!toggle || !mobileNav) return;
+
+  toggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+/* ============================================================
+   SERVICES DROPDOWN (desktop)
+   ============================================================ */
+function initDropdown() {
+  document.querySelectorAll('.nav-drop').forEach(drop => {
+    const btn  = drop.querySelector('.nav-drop__btn');
+    const menu = drop.querySelector('.nav-drop__menu');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-drop__menu.open').forEach(m => {
+      m.classList.remove('open');
+      m.previousElementSibling?.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+/* ============================================================
+   MINI-QUIZ (homepage hero preview)
+   Clicking any option redirects to the full assessment.
+   ============================================================ */
+function initMiniQuiz() {
+  const shell = document.getElementById('mini-quiz');
+  if (!shell) return;
+
+  shell.querySelectorAll('.quiz__opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      window.location.href = 'assessment.html';
+    });
+  });
+}
+
+/* ============================================================
+   FULL ASSESSMENT QUIZ
+   ============================================================ */
+function initAssessmentQuiz() {
+  const container = document.getElementById('assessment-quiz');
+  if (!container) return;
+
+  let currentIdx = 0;
+  const answers  = new Array(QUESTIONS.length).fill(null); // points or null
+
+  const totalEl   = container.querySelector('[data-total]');
+  const currentEl = container.querySelector('[data-current]');
+  const barFill   = container.querySelector('.quiz__bar-fill');
+
+  // Build question screens
+  const quizBody = container.querySelector('#quiz-steps');
+  if (!quizBody) return;
+
+  QUESTIONS.forEach((q, idx) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q' + (idx === 0 ? ' active' : '');
+    div.id = `q-${idx}`;
+
+    div.innerHTML = `
+      <span class="quiz__pillar">${String(idx + 1).padStart(2,'0')} · ${escHtml(q.pillar)}</span>
+      <p class="quiz__text">${escHtml(q.q)}</p>
+      <div class="quiz__opts" id="opts-${idx}">
+        ${q.options.map((o, oi) => `
+          <label class="quiz__opt" data-pts="${o.points}" data-qi="${idx}" data-oi="${oi}">
+            <input type="radio" name="q${idx}" value="${oi}" style="display:none">
+            <span>${escHtml(o.label)}</span>
+          </label>`).join('')}
+      </div>
+      <div class="quiz__nav">
+        <button class="quiz__back" data-back type="button" ${idx === 0 ? 'disabled' : ''}>← Back</button>
+        <button class="quiz__next" data-next type="button" disabled>
+          ${idx === QUESTIONS.length - 1 ? 'Continue →' : 'Next →'}
+        </button>
+      </div>
+    `;
+    quizBody.appendChild(div);
+  });
+
+  // Option selection
+  quizBody.addEventListener('click', e => {
+    const opt = e.target.closest('.quiz__opt');
+    if (!opt) return;
+    const qi = parseInt(opt.dataset.qi, 10);
+    // Deselect siblings
+    container.querySelectorAll(`#opts-${qi} .quiz__opt`).forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    answers[qi] = parseInt(opt.dataset.pts, 10);
+    // Enable next
+    const nextBtn = container.querySelector(`#q-${qi} [data-next]`);
+    if (nextBtn) nextBtn.disabled = false;
+  });
+
+  // Navigation
+  quizBody.addEventListener('click', e => {
+    if (e.target.closest('[data-back]')) {
+      if (currentIdx > 0) goTo(currentIdx - 1);
+      return;
+    }
+    if (e.target.closest('[data-next]')) {
+      if (currentIdx < QUESTIONS.length - 1) {
+        goTo(currentIdx + 1);
+      } else {
+        showLeadForm();
+      }
+    }
+  });
+
+  function goTo(idx) {
+    container.querySelector(`#q-${currentIdx}`)?.classList.remove('active');
+    currentIdx = idx;
+    container.querySelector(`#q-${currentIdx}`)?.classList.add('active');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    if (currentEl) currentEl.textContent = currentIdx + 1;
+    if (totalEl)   totalEl.textContent   = QUESTIONS.length;
+    if (barFill)   barFill.style.width   = ((currentIdx / QUESTIONS.length) * 100) + '%';
+  }
+
+  updateProgress();
+
+  /* ── Lead capture form ── */
+  function showLeadForm() {
+    quizBody.style.display = 'none';
+    const lf = container.querySelector('#lead-form');
+    if (lf) lf.style.display = 'block';
+    if (barFill) barFill.style.width = '95%';
+    if (currentEl) currentEl.textContent = '✓';
+  }
+
+  /* ── Lead form submit ── */
+  const leadFormEl = container.querySelector('#lead-form form');
+  if (leadFormEl) {
+    leadFormEl.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      const score      = answers.reduce((sum, a) => sum + (a ?? 0), 0);
+      const ratio      = score / MAX_SCORE;
+      const band       = BANDS.find(b => ratio >= b.min);
+      const pillarData = computePillars(answers);
+
+      // Assemble hidden JSON payload
+      const payload = {
+        brand:          BRAND_NAME,
+        full_name:      leadFormEl.querySelector('[name=full_name]')?.value || '',
+        email:          leadFormEl.querySelector('[name=email]')?.value || '',
+        phone:          leadFormEl.querySelector('[name=phone]')?.value || '',
+        business_name:  leadFormEl.querySelector('[name=business_name]')?.value || '',
+        score,
+        max_score:      MAX_SCORE,
+        score_pct:      Math.round(ratio * 100),
+        band:           band?.name || '',
+        answers:        QUESTIONS.map((q, i) => ({
+          id:      q.id,
+          pillar:  q.pillar,
+          points:  answers[i] ?? 0,
+          option:  q.options[answers[i] ?? 0]?.label || '',
+        })),
+        pillar_breakdown: pillarData,
+        submitted_at:   new Date().toISOString(),
+      };
+
+      // Store in hidden field
+      const hiddenJson = leadFormEl.querySelector('[name=answers_json]');
+      if (hiddenJson) hiddenJson.value = JSON.stringify(payload);
+
+      // POST to webhook if configured
+      if (LEAD_WEBHOOK_URL) {
+        try {
+          await fetch(LEAD_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        } catch (err) {
+          console.warn('Webhook delivery failed (results still shown):', err);
+        }
+      }
+
+      // Show results
+      showResults(score, ratio, band, pillarData);
+    });
+  }
+
+  /* ── Results display ── */
+  function showResults(score, ratio, band, pillarData) {
+    container.querySelector('#lead-form').style.display = 'none';
+    const resultsEl = container.querySelector('#results-panel');
+    if (!resultsEl) return;
+    resultsEl.style.display = 'block';
+
+    if (barFill) barFill.style.width = '100%';
+
+    const pct = Math.round(ratio * 100);
+
+    // Score + band
+    resultsEl.querySelector('.results__pct').textContent  = pct + '%';
+    resultsEl.querySelector('.results__band').textContent = band?.name || '';
+    resultsEl.querySelector('.results__summary').textContent = band?.summary || '';
+
+    // Recommendations
+    const recList = resultsEl.querySelector('.results__rec-list');
+    if (recList && band?.recommendations) {
+      recList.innerHTML = band.recommendations.map(r =>
+        `<li class="results__rec-item">${escHtml(r)}</li>`
+      ).join('');
+    }
+
+    // Pillar breakdown
+    const pillarsEl = resultsEl.querySelector('.pillars');
+    if (pillarsEl) {
+      pillarsEl.innerHTML = PILLARS.map(p => {
+        const earned  = pillarData[p.key] || 0;
+        const pctPillar = Math.round((earned / p.max) * 100);
+        return `
+          <div class="pillar-row">
+            <span class="pillar-row__name">${escHtml(p.label)}</span>
+            <span class="pillar-row__pct">${pctPillar}%</span>
+            <div class="pillar-row__bar">
+              <div class="pillar-row__fill" style="width:${pctPillar}%"></div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // CTA blurb
+    const ctaEl = resultsEl.querySelector('.results__cta');
+    if (ctaEl) {
+      ctaEl.innerHTML = `<strong>What's next?</strong> A member of our team will be in touch to walk through your results and map the gaps in priority order. Questions? <a href="contact.html" style="color:var(--emerald);font-weight:600">Contact us directly →</a>`;
+    }
+  }
+
+  /* ── Pillar score aggregation ── */
+  function computePillars(ans) {
+    const totals = {};
+    PILLARS.forEach(p => totals[p.key] = 0);
+    QUESTIONS.forEach((q, i) => {
+      totals[q.pillarKey] = (totals[q.pillarKey] || 0) + (ans[i] ?? 0);
+    });
+    return totals;
+  }
+}
+
+/* ============================================================
+   CONTACT FORM
+   ============================================================ */
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const payload = {
+      brand:   BRAND_NAME,
+      name:    form.querySelector('[name=name]')?.value     || '',
+      email:   form.querySelector('[name=email]')?.value    || '',
+      message: form.querySelector('[name=message]')?.value  || '',
+      submitted_at: new Date().toISOString(),
+    };
+
+    if (LEAD_WEBHOOK_URL) {
+      try {
+        await fetch(LEAD_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+      } catch (err) {
+        console.warn('Contact webhook error:', err);
+      }
+    }
+
+    const successMsg = document.getElementById('contact-success');
+    if (successMsg) {
+      form.style.display = 'none';
+      successMsg.classList.add('show');
+    }
+  });
+}
+
+/* ============================================================
+   HELPERS
+   ============================================================ */
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  injectTokens();
+  initMobileNav();
+  initDropdown();
+  initMiniQuiz();
+  initAssessmentQuiz();
+  initContactForm();
+});
+
+</script>
+</body>
+</html>
